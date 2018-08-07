@@ -1,0 +1,24 @@
+{
+  "name": "test-task-aviapark",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vudulin/test-task-aviapark.git",
+  "author": "vudulin <vudulin@mail.ru>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4",
+    "webpack": "^4.16.5"
+  },
+  "devDependencies": {
+    "styled-components": "^3.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
