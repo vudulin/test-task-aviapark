@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components';
-import { url } from "inspector";
 
 const MapIcon = styled.div`
   width: 36px;
@@ -9,11 +8,7 @@ const MapIcon = styled.div`
   border-radius: 100%;
   background: url('../../assets/icon_search/svg/icon_search.svg');
 `
-export const ShowMap = () => {
-  return 
-    (
+export const ShowMap = 
       <div>
         <MapIcon />
       </div>
-    );
-}

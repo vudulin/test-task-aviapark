@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
 
 import Search from "./Search";
 import {ShowMap} from "./ShowMap";
@@ -12,7 +11,7 @@ export default class NavBar extends Component {
       <div>
         NavBar
         <Search />
-        <ShowMap />
+        {ShowMap}
         <NavItems />
         <Profile />
       </div>
