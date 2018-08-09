@@ -5,20 +5,10 @@ const Lang = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 `;
 
-const LangSelected = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 36px;
-  height: 36px;
-  background-color: #3D4252;
-  border-radius: 100%;
-`;
-
-const RuLang = styled.div`
-  color: #FFFFFF;
+const RuLang = styled(Lang)`
   font-family: Navigo;
   font-size: 11px;
   font-weight: 700;
@@ -26,30 +16,49 @@ const RuLang = styled.div`
   line-height: 16px;
   width: 36px;
   text-align: center;
+  cursor: pointer;
 `;
 const EngLang = styled(RuLang)`
   color: #3D4252;
 `;
 
-export default class Language extends Component {
+
+export default class Language extends Component{
   state = {
     ru:true
   }
+  select = {
+    width: "36px", 
+    height: "36px", 
+    backgroundColor: "#3D4252", 
+    color: "#FFFFFF", 
+    borderRadius: "100%"
+  }
+
+  Rus = (
+    <Lang>
+      <RuLang style={this.select}>РУС</RuLang>
+      <EngLang onClick={this.toggleLang}>ENG</EngLang>
+    </Lang>
+  )
+
+  Eng = (
+    <Lang>
+      <RuLang onClick={this.toggleLang}>РУС</RuLang>
+      <EngLang style={this.select}>ENG</EngLang>
+    </Lang>
+  )
 
   toggleLang = () => {
-    this.setState({
-      ru:!this.state.ru
-    })
+    this.setState(prevState => ({
+      ru:!prevState.ru
+    }));
   }
   
+
   render() {
-    return (
-      <Lang>
-        <LangSelected>
-          <RuLang>РУС</RuLang>
-        </LangSelected>
-        <EngLang>ENG</EngLang>
-      </Lang>
-    );
+    const selected = this.state.ru;
+    console.log(selected);
+    return  selected ? this.Rus : this.Eng
   }
 }
