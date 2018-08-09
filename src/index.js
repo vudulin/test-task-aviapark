@@ -9,7 +9,7 @@ import Services from "./components/Services/Services";
 import Footer from "./components/Footer/Footer"; */}
 
 const Wrapper = styled.div`
-  width: 1600px;
+  max-width: 1600px;
   margin: 20px auto;
   background-color: #FFFFFF;
 `
