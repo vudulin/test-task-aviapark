@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer"; */}
 const Wrapper = styled.div`
   max-width: 1600px;
   margin: 20px auto;
-  background-color: #FFFFFF;
+  background-color: lightgreen;
 `
 
 export const App = () =>{

@@ -1,5 +1,5 @@
 const { resolve } = require('path');
-const webpack = require('../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/webpack');
+const webpack = require('webpack');
 
 module.exports = {
   entry: [
@@ -29,8 +29,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.(eot|woff|woff2|otf|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+        test: /\.(eot|woff|woff2|otf|ttf|png|jpe?g|gif)(\?\S*)?$/,
         use: 'url-loader'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
       }
     ]
   },

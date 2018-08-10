@@ -36,15 +36,15 @@ export default class Language extends Component{
   }
 
   Rus = (
-    <Lang>
+    <Lang onClick={this.toggleLang}>
       <RuLang style={this.select}>РУС</RuLang>
-      <EngLang onClick={this.toggleLang}>ENG</EngLang>
+      <EngLang>ENG</EngLang>
     </Lang>
   )
 
   Eng = (
     <Lang>
-      <RuLang onClick={this.toggleLang}>РУС</RuLang>
+      <RuLang>РУС</RuLang>
       <EngLang style={this.select}>ENG</EngLang>
     </Lang>
   )
