@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
+import "../../index.css";
 
 import Icon_social_vk from '../../assets/icon_social_vk/svg/icon_social_vk.svg';
 import Icon_social_fb from '../../assets/icon_social_fb/svg/icon_social_fb.svg'; 
@@ -36,6 +37,9 @@ const SocialList = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
+  width: 43.35%;
+  padding: 0;
 `
 const SocialItem = styled.li`
   display: flex;
