@@ -130,11 +130,10 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 1513px;
   margin: 0 100px;  
 `
 const ContentText1 = styled.div`
-  width: 980px;
+  width: 61.25%;
   margin-top: 104px;
   font-family: Navigo-Regular;
   font-size: 18px;

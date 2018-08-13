@@ -18,7 +18,7 @@ const FooterDataWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center; 
-  width: 1400px;
+  width: 87.5%;
   margin-top: 32px;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -234,7 +234,7 @@ export default class Footer extends Component {
               <FooterNavItem
                 key={item.id}
               >
-                <a href="#">{item.text}</a>
+                <a href="/">{item.text}</a>
               </FooterNavItem>
             )}
           </FooterNavItemsList>

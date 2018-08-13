@@ -8,6 +8,7 @@ const Lang = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 3.43%;
+  transition: 0.4s ease-out;
 `;
 
 const RuLang = styled(Lang)`

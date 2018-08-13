@@ -18,6 +18,9 @@ const IsOpened = styled.div`
   font-weight: 700;
   line-height: 13px;
   text-align: left;
+  @media (max-width: 1000px){
+    display: none;
+  }
 `
 
 export default class Timer extends Component {

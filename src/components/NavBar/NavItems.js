@@ -47,10 +47,11 @@ const NavItemsList = styled.div`
   align-items: center;
   justify-content: center;
   width: 56%;
-  @media (max-width: 1350px){
-    justify-content: flex-start;
-    overflow-x: scroll;
-    visibility: hidden;
+  @media (max-width: 1380px){
+    justify-content: ${props => props.alignState ? "flex-end" : "flex-start" };
+    margin-left: 20px;
+    overflow: hidden;
+    transition: 0.5s ease-out;
   }
 `
 const NavItem = styled.div`
@@ -62,17 +63,14 @@ const NavItem = styled.div`
   text-align: left;
   text-transform: uppercase;
   color: #FFFFFF;
-  visibility: visible;
-  &:hover{
-    visibility: visible;
-  }
-  &:focus{
-    visibility: visible;
-  }
 `
 
 export default class NavItems extends Component {
+  componentDidMount(){
+    this.props.reveal();
+  }
   render() {
+    console.log("alignState",this.props.alignState)
     return (
       <NavItemsList>
         { Items.map(item => 

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import NavItems from "./NavItems";
 
 import Search from "../../assets/icon_search/svg/icon_search.svg";
+import Arrow from "../../assets/icon_arrow-right/svg/icon_arrow-right-white.svg";
 
 const NavBarWrapper = styled.div`
   display: flex;
@@ -62,16 +63,51 @@ const MessageCount = styled.div`
   color: #FFFFFF;
   border-radius: 100%;
 `
-
+const Reveal = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #3D4252;
+`
+const ArrowBox = styled.img`
+  display: none;
+  width: 10px;
+  height: 16px;
+  transition: 0.2s ${props => props.rotate ? "ease-out" : "ease-in"};
+  transform: ${props => props.rotate ? "none" : "rotate(180deg)" };
+  @media (max-width: 1350px){
+    display: block;
+    margin-right: 20px;
+  }
+`
 export default class NavBar extends Component {
+  state = {
+    alignStart: true
+  }
+  
+  revealNavBar = () => {
+    this.setState(prevState => ({
+      alignStart:!prevState.alignStart
+    }));
+  }
+
   render() {
+    console.log("window.outerWidth",window.outerWidth);
+    const alignStart = this.state.alignStart
     return (
       <NavBarWrapper>
         <SeacrhMapWrapper>
           <img src={Search} width="36px" height="36px" alt="" style={{ marginRight: "27.3%", background: "none", border: "1px solid #656C81", borderRadius: "100%", boxSizing: "border-box" }} />
           <Map>КАРТА</Map>
         </SeacrhMapWrapper>
-        <NavItems />
+        <NavItems alignState={alignStart} reveal={this.revealNavBar}/>
+        {window.outerWidth<=1350 ? 
+          <Reveal onClick={this.revealNavBar} >
+            <ArrowBox rotate={alignStart} src={Arrow} alt="" />
+          </Reveal>
+          : null}
         <ProfileWrapper>
           <Profile>
             КАБИНЕТ
