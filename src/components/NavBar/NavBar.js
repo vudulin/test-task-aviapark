@@ -15,18 +15,14 @@ const SeacrhMapWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 14.29%;
+  width: 20%;
   margin-left: 100px;  
 `
-const NavItemsWrapper = styled(SeacrhMapWrapper)`
-  justify-content: flex-start;
-  width: 76.35%;
-  margin: 0;
-`
-const ProfileWrapper = styled(NavItemsWrapper)`
+const ProfileWrapper = styled(SeacrhMapWrapper)`
   justify-content: flex-end;
-  width: 9.36%;
+  width: 20%;
   margin-right: 100px;
+  margin-left: 0;
 `
 
 const Map = styled.div`
@@ -72,12 +68,10 @@ export default class NavBar extends Component {
     return (
       <NavBarWrapper>
         <SeacrhMapWrapper>
-          <img src={Search} width="36px" height="36px" alt="" style={{ marginRight: "84px", background: "none", border: "1px solid #656C81", borderRadius: "100%", boxSizing: "border-box" }} />
+          <img src={Search} width="36px" height="36px" alt="" style={{ marginRight: "27.3%", background: "none", border: "1px solid #656C81", borderRadius: "100%", boxSizing: "border-box" }} />
           <Map>КАРТА</Map>
         </SeacrhMapWrapper>
-        <NavItemsWrapper>
-          <NavItems />
-        </NavItemsWrapper>
+        <NavItems />
         <ProfileWrapper>
           <Profile>
             КАБИНЕТ

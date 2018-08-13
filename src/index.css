@@ -10,3 +10,7 @@
   font-family: Navigo-Regular; 
   src: url(./fonts/Navigo-Regular.ttf); 
 }
+:root, body{
+  margin: 0;
+  padding: 0;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from 'styled-components';
 import "../../index.css";
 
@@ -29,18 +29,20 @@ const LangWrapper = styled.div`
   width: 43.35%;
 `
 
-export const Header = () => {
-  return (
-    <HeaderWrapper>
-      <LangWrapper>
-        <Language />
-        <Timer />   
-      </LangWrapper>
-      <TitleWrapper>
-        <img src={Logo} width="186px" height="24px" alt="" style={{ }}/>
-        <img src={Triangle} width="40px" height="7px" alt="" style={{ position: "relative", top: "21px" }}/>
-      </TitleWrapper>
-      <Social />
-    </HeaderWrapper>
-  );
+export default class Header extends Component {
+  render(){
+    return (
+      <HeaderWrapper>
+        <LangWrapper>
+          <Language />
+          <Timer />   
+        </LangWrapper>
+        <TitleWrapper>
+          <img src={Logo} width="186px" height="24px" alt="" style={{ }}/>
+          <img src={Triangle} width="40px" height="7px" alt="" style={{ position: "relative", top: "21px" }}/>
+        </TitleWrapper>
+        <Social />
+      </HeaderWrapper>
+    );
+  }
 }

@@ -43,10 +43,15 @@ const Items = [
 
 const NavItemsList = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: row;  
   align-items: center;
   justify-content: center;
-  margin-left: 95px;
+  width: 56%;
+  @media (max-width: 1350px){
+    justify-content: flex-start;
+    overflow-x: scroll;
+    visibility: hidden;
+  }
 `
 const NavItem = styled.div`
   margin: auto 13px;
@@ -57,6 +62,13 @@ const NavItem = styled.div`
   text-align: left;
   text-transform: uppercase;
   color: #FFFFFF;
+  visibility: visible;
+  &:hover{
+    visibility: visible;
+  }
+  &:focus{
+    visibility: visible;
+  }
 `
 
 export default class NavItems extends Component {

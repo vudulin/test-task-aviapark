@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import styled from 'styled-components';
 import "./index.css";
 
-import { Header } from "./components/Header/Header";
+import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
 import Title from "./components/Title/Title";
 import Content from "./components/Content/Content";
