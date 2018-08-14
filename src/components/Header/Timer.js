@@ -9,6 +9,10 @@ const TimerWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content:space-between;
+  @media (max-width: 750px){
+    display: none;
+    transition: 0.5s ease-out;
+  }
 `
 const IsOpened = styled.div`
   margin-left: 15px;

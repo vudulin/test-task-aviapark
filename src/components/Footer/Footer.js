@@ -11,32 +11,50 @@ const FooterWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center; 
-  height: 215px;
+  ${'' /* height: 215px; */}
   background-color: #3D4252;
 `
 const FooterDataWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center; 
+  justify-content: center; 
   width: 87.5%;
   margin-top: 32px;
-  padding-top: 32px;
   padding-bottom: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.10000000149011612);
   content: ".";
+  @media (max-width: 620px){
+    flex-direction: column;
+  }
 `
 const Bar = styled.div`
   width: 1px;
   height: 118px;
-  margin: 0 44px;
+  margin: 32px 44px 0;
   background-color: rgba(255, 255, 255, 0.10000000149011612);
   content: ".";
+  @media (max-width: 620px){
+    display: none;
+    transition: 0.5s ease-out;
+  }
 `
 const BarNew = styled(Bar)`
-  margin: 0 45px;
+  margin: 32px 45px 0;
+  
 `
+const BarNew1 = styled(BarNew)`
+  margin: 32px 45px 0;
+  @media (max-width: 750px){
+    display: none;
+    transition: 0.5s ease-out;
+  }
+`
+
 const Contacts = styled.div`
   padding-left: 2px;
+  margin-top: 32px;
 `
 const ContactsText = styled.div`
   margin-bottom: 16px;
@@ -55,6 +73,7 @@ const WorkingHoursWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 32px;
 `
 const WorkingHours = styled.div`
   display: flex;
@@ -75,7 +94,7 @@ const WorkingHoursText2 = styled(WorkingHoursText1)`
   margin-bottom: 0;
 `
 const SendNewsWrapper = styled(WorkingHours)`
-  margin-top: 30px;
+  margin-top: 62px;
   margin-left: 0;
 `
 const SendNewsText = styled.div`
@@ -122,6 +141,11 @@ const FooterNavItemsList = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  margin-top: 32px;
+  @media (max-width: 750px){
+    display: none;
+    transition: 0.5s ease-out;
+  }
 `
 const FooterNavItem = styled.li`
   display: flex;
@@ -146,6 +170,7 @@ const Feedback = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 32px;
 `
 const FeedbackPhone = styled.div`
   display: flex;
@@ -220,7 +245,7 @@ export default class Footer extends Component {
               <WorkingHoursText2>ПТ - СБ<br/>10:00 - 23:00</WorkingHoursText2>
             </WorkingHours>
           </WorkingHoursWrapper>
-          <BarNew></BarNew>
+          <BarNew1></BarNew1>
           <SendNewsWrapper>
             <SendNewsText>ПОЛУЧАТЬ НОВОСТИ</SendNewsText>
             <SendNewsInput type="text" placeholder="E-MAIL"></SendNewsInput>
@@ -228,7 +253,7 @@ export default class Footer extends Component {
               <img src={Arrow} alt="" width="10px" height="16px"/>
             </SendEmailIcon>
           </SendNewsWrapper>
-          <BarNew></BarNew>
+          <BarNew1></BarNew1>
           <FooterNavItemsList>
             { FooterNavItems.map(item => 
               <FooterNavItem

@@ -40,6 +40,10 @@ const SocialList = styled.ul`
   justify-content: flex-end;
   width: 43.35%;
   padding: 0;
+  @media (max-width: 750px){
+    display: none;
+    transition: 0.5s ease-out;
+  }
 `
 const SocialItem = styled.li`
   display: flex;

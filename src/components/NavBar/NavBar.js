@@ -69,6 +69,7 @@ const Reveal = styled.div`
   justify-content: center;
   width: 24px;
   height: 24px;
+  margin-left: 10px;
   background-color: #3D4252;
 `
 const ArrowBox = styled.img`
@@ -94,7 +95,6 @@ export default class NavBar extends Component {
   }
 
   render() {
-    console.log("window.outerWidth",window.outerWidth);
     const alignStart = this.state.alignStart
     return (
       <NavBarWrapper>
@@ -103,11 +103,9 @@ export default class NavBar extends Component {
           <Map>КАРТА</Map>
         </SeacrhMapWrapper>
         <NavItems alignState={alignStart} reveal={this.revealNavBar}/>
-        {window.outerWidth<=1350 ? 
-          <Reveal onClick={this.revealNavBar} >
-            <ArrowBox rotate={alignStart} src={Arrow} alt="" />
-          </Reveal>
-          : null}
+        <Reveal onClick={this.revealNavBar} >
+          <ArrowBox rotate={alignStart} src={Arrow} alt="" />
+        </Reveal>
         <ProfileWrapper>
           <Profile>
             КАБИНЕТ

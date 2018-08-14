@@ -48,7 +48,7 @@ const NavItemsList = styled.div`
   justify-content: center;
   width: 56%;
   @media (max-width: 1380px){
-    justify-content: ${props => props.alignState ? "flex-end" : "flex-start" };
+    justify-content: ${props => props.align ? "flex-start" : "flex-end"};
     margin-left: 20px;
     overflow: hidden;
     transition: 0.5s ease-out;
@@ -64,15 +64,14 @@ const NavItem = styled.div`
   text-transform: uppercase;
   color: #FFFFFF;
 `
-
 export default class NavItems extends Component {
-  componentDidMount(){
-    this.props.reveal();
+  state = {
+    align: this.props.alignState
   }
   render() {
-    console.log("alignState",this.props.alignState)
+    console.log(this.state.align);
     return (
-      <NavItemsList>
+      <NavItemsList align={this.state.align}>
         { Items.map(item => 
           <NavItem 
             key={item.id}
