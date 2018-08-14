@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
+import "../../index.css";
 
 import NavItems from "./NavItems";
 
@@ -64,14 +65,26 @@ const NavItemsWrapper = styled.div`
   display: flex;
   flex-direction: row;  
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 56%;
   @media (max-width: 1380px){
-    justify-content: ${props => props.alignState ? "flex-start" : "flex-end"};
     margin-left: 20px;
     margin-right: 20px;
-    overflow: auto;
+    overflow-x: scroll;
     transition: 0.5s ease-out;
+    &::-webkit-scrollbar {
+      display: none;
+      height: 4px;
+      background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.4); 
+      border-radius: 2px;
+    } 
+    &::-webkit-scrollbar-thumb {
+      background: #888; 
+    }
   }
 `
 const MessageCount = styled.div`
@@ -91,18 +104,7 @@ const MessageCount = styled.div`
   border-radius: 100%;
 `
 export default class NavBar extends Component {
-  state = {
-    alignStart: true
-  }
-  
-  revealNavBar = () => {
-    this.setState(prevState => ({
-      alignStart:!prevState.alignStart
-    }));
-  }
-
   render() {
-    const alignStart = this.state.alignStart
     return (
       <NavBarWrapper>
         <SeacrhMapWrapper>
@@ -111,7 +113,7 @@ export default class NavBar extends Component {
           </SearchIconWrapper>
           <ShowMap>КАРТА</ShowMap>
         </SeacrhMapWrapper>
-        <NavItemsWrapper alignState={alignStart} reveal={this.revealNavBar}>
+        <NavItemsWrapper>
           <NavItems/>
         </NavItemsWrapper>
         <ProfileWrapper>

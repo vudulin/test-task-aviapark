@@ -60,6 +60,7 @@ const NavItem = styled.div`
     text-decoration: none;
     color: #FFFFFF !important;
   }
+  user-select: none;
 `
 export default class NavItems extends Component {
   render() {
