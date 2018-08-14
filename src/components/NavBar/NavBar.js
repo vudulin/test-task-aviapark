@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import NavItems from "./NavItems";
 
 import Search from "../../assets/icon_search/svg/icon_search.svg";
-import Arrow from "../../assets/icon_arrow-right/svg/icon_arrow-right-white.svg";
 
 const NavBarWrapper = styled.div`
   display: flex;
@@ -19,6 +18,20 @@ const SeacrhMapWrapper = styled.div`
   width: 20%;
   margin-left: 100px;  
 `
+const SearchIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 27.3%;
+`
+const SearchIcon = styled.img`
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid #656C81;
+  border-radius: 100%;
+  box-sizing: border-box;
+`
 const ProfileWrapper = styled(SeacrhMapWrapper)`
   justify-content: flex-end;
   width: 20%;
@@ -26,7 +39,7 @@ const ProfileWrapper = styled(SeacrhMapWrapper)`
   margin-left: 0;
 `
 
-const Map = styled.div`
+const ShowMap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,11 +54,25 @@ const Map = styled.div`
   text-align: left;
   color: #FFFFFF;
 `
-const Profile = styled(Map)`
+const Profile = styled(ShowMap)`
   width: 131px;
   height: 34px;
   border: 2px solid #656C81;
   border-radius: 17px;
+`
+const NavItemsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;  
+  align-items: center;
+  justify-content: center;
+  width: 56%;
+  @media (max-width: 1380px){
+    justify-content: ${props => props.alignState ? "flex-start" : "flex-end"};
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: auto;
+    transition: 0.5s ease-out;
+  }
 `
 const MessageCount = styled.div`
   display: flex;
@@ -63,26 +90,6 @@ const MessageCount = styled.div`
   color: #FFFFFF;
   border-radius: 100%;
 `
-const Reveal = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  margin-left: 10px;
-  background-color: #3D4252;
-`
-const ArrowBox = styled.img`
-  display: none;
-  width: 10px;
-  height: 16px;
-  transition: 0.2s ${props => props.rotate ? "ease-out" : "ease-in"};
-  transform: ${props => props.rotate ? "none" : "rotate(180deg)" };
-  @media (max-width: 1350px){
-    display: block;
-    margin-right: 20px;
-  }
-`
 export default class NavBar extends Component {
   state = {
     alignStart: true
@@ -99,13 +106,14 @@ export default class NavBar extends Component {
     return (
       <NavBarWrapper>
         <SeacrhMapWrapper>
-          <img src={Search} width="36px" height="36px" alt="" style={{ marginRight: "27.3%", background: "none", border: "1px solid #656C81", borderRadius: "100%", boxSizing: "border-box" }} />
-          <Map>КАРТА</Map>
+          <SearchIconWrapper>
+            <SearchIcon src={Search} alt="" />
+          </SearchIconWrapper>
+          <ShowMap>КАРТА</ShowMap>
         </SeacrhMapWrapper>
-        <NavItems alignState={alignStart} reveal={this.revealNavBar}/>
-        <Reveal onClick={this.revealNavBar} >
-          <ArrowBox rotate={alignStart} src={Arrow} alt="" />
-        </Reveal>
+        <NavItemsWrapper alignState={alignStart} reveal={this.revealNavBar}>
+          <NavItems/>
+        </NavItemsWrapper>
         <ProfileWrapper>
           <Profile>
             КАБИНЕТ

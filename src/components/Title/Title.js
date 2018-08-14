@@ -17,7 +17,7 @@ const TitleWrapper = styled.div`
   background-repeat: no-repeat;
 `
 const TitleSmall = styled.div`
-  width: 980px;
+  width: 61.25%;
   font-family: Navigo-Bold;
   font-size: 32px;
   font-weight: 700;

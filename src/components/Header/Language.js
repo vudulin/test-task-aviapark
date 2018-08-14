@@ -9,6 +9,9 @@ const Lang = styled.div`
   justify-content: center;
   margin-right: 3.43%;
   transition: 0.4s ease-out;
+  @media (max-width: 540px){
+    display: none;
+  }
 `;
 
 const RuLang = styled(Lang)`

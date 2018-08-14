@@ -11,7 +11,6 @@ const FooterWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center; 
-  ${'' /* height: 215px; */}
   background-color: #3D4252;
 `
 const FooterDataWrapper = styled.div`
@@ -25,36 +24,34 @@ const FooterDataWrapper = styled.div`
   padding-bottom: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.10000000149011612);
   content: ".";
-  @media (max-width: 620px){
+  @media (max-width: 750px){
     flex-direction: column;
   }
 `
 const Bar = styled.div`
   width: 1px;
   height: 118px;
-  margin: 32px 44px 0;
+  margin-top: 32px;
   background-color: rgba(255, 255, 255, 0.10000000149011612);
   content: ".";
-  @media (max-width: 620px){
-    display: none;
-    transition: 0.5s ease-out;
-  }
-`
-const BarNew = styled(Bar)`
-  margin: 32px 45px 0;
-  
-`
-const BarNew1 = styled(BarNew)`
-  margin: 32px 45px 0;
   @media (max-width: 750px){
-    display: none;
-    transition: 0.5s ease-out;
+    width: 118px;
+    height: 1px;
+    margin: 10px 0;
   }
 `
-
 const Contacts = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   padding-left: 2px;
   margin-top: 32px;
+  margin-right: 44px;
+  @media (max-width: 750px){
+    justify-content: center;
+    margin: 10px 0;
+    padding: 0;
+  }
 `
 const ContactsText = styled.div`
   margin-bottom: 16px;
@@ -74,12 +71,21 @@ const WorkingHoursWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   margin-top: 32px;
+  margin-left: 44px;
+  margin-right: 45px;
+  @media (max-width: 750px){
+    margin: 10px 0;
+    padding: 0;
+  }
 `
 const WorkingHours = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: 20px;
+  @media (max-width: 750px){
+    flex-direction: row;
+  }
 `
 const WorkingHoursText1 = styled.div`
   margin-bottom: 4px;
@@ -89,13 +95,19 @@ const WorkingHoursText1 = styled.div`
   line-height: 16px;
   text-align: left;
   color: #FFFFFF;
+  @media (max-width: 750px){
+    margin: 0 10px
+  }
 `
 const WorkingHoursText2 = styled(WorkingHoursText1)`
   margin-bottom: 0;
 `
 const SendNewsWrapper = styled(WorkingHours)`
-  margin-top: 62px;
-  margin-left: 0;
+  margin: 62px 45px 0;
+  @media (max-width: 750px){
+    flex-direction: column;
+    margin: 10px 0
+  }
 `
 const SendNewsText = styled.div`
   margin-bottom: 4px;
@@ -141,10 +153,13 @@ const FooterNavItemsList = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 32px;
+  margin: 39px 45px 0;
   @media (max-width: 750px){
-    display: none;
-    transition: 0.5s ease-out;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 0;
   }
 `
 const FooterNavItem = styled.li`
@@ -164,6 +179,9 @@ const FooterNavItem = styled.li`
     text-decoration: none;
     color: #FFFFFF !important;
   }
+  @media (max-width: 750px){
+    margin: 0 10px;
+  }
 `
 const Feedback = styled.div`
   display: flex;
@@ -171,6 +189,10 @@ const Feedback = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 32px;
+  margin-left: 45px;
+  @media (max-width: 750px){
+    margin: 0;
+  }
 `
 const FeedbackPhone = styled.div`
   display: flex;
@@ -245,7 +267,7 @@ export default class Footer extends Component {
               <WorkingHoursText2>ПТ - СБ<br/>10:00 - 23:00</WorkingHoursText2>
             </WorkingHours>
           </WorkingHoursWrapper>
-          <BarNew1></BarNew1>
+          <Bar></Bar>
           <SendNewsWrapper>
             <SendNewsText>ПОЛУЧАТЬ НОВОСТИ</SendNewsText>
             <SendNewsInput type="text" placeholder="E-MAIL"></SendNewsInput>
@@ -253,7 +275,7 @@ export default class Footer extends Component {
               <img src={Arrow} alt="" width="10px" height="16px"/>
             </SendEmailIcon>
           </SendNewsWrapper>
-          <BarNew1></BarNew1>
+          <Bar></Bar>
           <FooterNavItemsList>
             { FooterNavItems.map(item => 
               <FooterNavItem
@@ -263,7 +285,7 @@ export default class Footer extends Component {
               </FooterNavItem>
             )}
           </FooterNavItemsList>
-          <BarNew></BarNew>
+          <Bar></Bar>
           <Feedback>
             <FeedbackPhone>
               <img src={Phone} alt="" width="16px" height="16px" />
